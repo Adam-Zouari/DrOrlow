@@ -1,0 +1,42 @@
+main { max-inline-size: 90rem; margin-inline: auto; text-align: center; }
+main > p, .pinkii-story p {
+    max-inline-size: 54ch;
+    margin: clamp(1.75rem, 6svh, 4.5rem) auto;
+    font-size: clamp(1.875rem, 3vw, 2.5rem);
+    line-height: 1.5;
+    text-wrap: balance;
+}
+#family { display: flex; justify-content: center; align-items: center; gap: .75rem; }
+#family p { flex: 1; min-inline-size: 0; font-size: clamp(2rem, 4vw, 3.75rem); line-height: 1.25; }
+#fas { inline-size: min(38vw, 31.25rem); block-size: auto; border-radius: 50%; }
+#rarrow, #larrow, #rarrow2 { inline-size: clamp(2.5rem, 6vw, 6.25rem); block-size: auto; }
+#larrow { transform: scaleX(-1); }
+.pinkii-story { display: flex; align-items: center; justify-content: center; gap: 1.5rem; }
+.pinkii-story > div { min-inline-size: 0; }
+#pinkii { inline-size: min(30vw, 21.875rem); block-size: auto; }
+.reveal-ready .scroll-reveal {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+.reveal-ready .scroll-reveal.is-revealed { opacity: 1; transform: none; }
+.reveal-ready .image-reveal {
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+.reveal-ready .image-reveal.is-revealed { opacity: 1; }
+@media (max-width: 43.75rem) {
+    #family { flex-wrap: wrap; gap: .5rem; }
+    #family p { flex-basis: 42%; margin: 0; }
+    #family p:first-child { order: 0; }
+    #family p:last-child { order: 1; }
+    #fas { order: 2; inline-size: min(100%, 31.25rem); }
+    #rarrow, #larrow { display: none; }
+    .pinkii-story { flex-direction: column; gap: 0; }
+    #rarrow2 { transform: rotate(90deg); margin-block-end: .75rem; }
+    #pinkii { inline-size: min(75vw, 18.75rem); }
+}
+@media (prefers-reduced-motion: reduce), print {
+    .reveal-ready .scroll-reveal { opacity: 1; transform: none; }
+    .reveal-ready .image-reveal { opacity: 1; transition: none; }
+}

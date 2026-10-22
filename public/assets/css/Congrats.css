@@ -1,0 +1,9 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    text-align: center;
+}
+main > h2 { font-size: clamp(3.5rem, min(8vw, 12svh), 6.25rem); color: var(--cream); }

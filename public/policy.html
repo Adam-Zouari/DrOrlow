@@ -2,34 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="policy.css" />
-    <title>Dr Orlow</title>
+    <meta name="description" content="Meet Dr Orlow's playful side in a little story about a button you probably shouldn't touch.">
+    <link rel="icon" href="/assets/images/Octopus1.png" type="image/png">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/policy.css">
+    <script src="/assets/js/policy.js" defer></script>
+    <title>Policy | Dr Orlow</title>
 </head>
-<body>
-       <header id="header">
-        <h1>Dr Orlow</h1>
-        <img src="Octopus1.png" alt="Logo">
-       </header>
-       <section> 
-           <button id="button1" class="button" onclick="hidebutton1(this)">Do not touch this button</button>
-           <button id="button2" class="button" onclick="hidebutton2(this)" style="display: none" >I told you not to touch it...</button>
-           <button id="button3" class="button" onclick="hidebutton3(this)" style="display: none;"> Last warning...</button>
-           <button id="button4" class="button" onclick="hidebutton4(this)" style="display: none;">I apologize</button>
-           <a href="Home.html" type="button" id="button5" class="button" style="display: none;">I love you too</a>
-           <script src="policy.js"></script>
-           <img src="angryorlow.png" id="angryorlow" style="display: none;">
-           <p id="angry" style="display: none;">I am angry at you...<br>So So angry</p>
-           <p id="again" style="display: none;">Do not do that again...</p>
-           <p id="happy1" style="display: none;">Apology accepted</p>
-           <p id="happy2" style="display: none;">Don't worry my friend...<br>I can't stay angry at you ^-^<br>I love you</p>
-           <img src="DrOrlow.png" id="DrOrlow" style="display: none;">
-    </section>
-    <footer id="footer">
-    <a href="Home.html"><h2>Home</h2></a>
-     <a href="About me.html" ><h2>About me</h2></a>
-     <a href="join me.html" ><h2>Join me</h2></a>
+<body class="viewport-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header id="header">
+        <h1><a href="Home.html">Dr Orlow</a></h1>
+        <img src="/assets/images/Octopus1.png" alt="" width="220" height="100">
+    </header>
+    <main id="main-content" class="policy-page" tabindex="-1">
+        <h2 class="sr-only">A playful warning from Dr Orlow</h2>
+        <div id="policy-story">
+            <div id="warning1" class="warning-scene" data-policy-scene>
+                <button id="button1" class="button" type="button" data-policy-next="warning2">Do not touch this button</button>
+            </div>
+            <div id="warning2" class="warning-scene" data-policy-scene hidden>
+                <button id="button2" class="button" type="button" data-policy-next="warning3">I told you not to touch it...</button>
+            </div>
+            <div id="warning3" class="warning-scene" data-policy-scene hidden>
+                <button id="button3" class="button" type="button" data-policy-next="angry-scene">Last warning...</button>
+            </div>
+            <div id="angry-scene" class="character-scene" data-policy-scene tabindex="-1" role="group" aria-labelledby="angry again" hidden>
+                <img src="/assets/images/angryorlow.png" id="angryorlow" class="character" alt="Dr Orlow looking angry" width="577" height="433">
+                <div class="character-message" role="status">
+                    <p id="angry">I am angry at you...<br>So, so angry.</p>
+                    <p id="again">Do not do that again...</p>
+                </div>
+                <button id="button4" class="button" type="button" data-policy-next="happy-scene">I apologize</button>
+            </div>
+            <div id="happy-scene" class="character-scene" data-policy-scene tabindex="-1" role="group" aria-labelledby="happy1 happy2" hidden>
+                <img src="/assets/images/DrOrlow.png" id="DrOrlow" class="character" alt="Dr Orlow smiling again" width="577" height="433">
+                <div class="character-message" role="status">
+                    <p id="happy1">Apology accepted.</p>
+                    <p id="happy2">Don't worry, my friend...<br>I can't stay angry at you ^-^<br>I love you.</p>
+                </div>
+                <a href="Home.html" id="button5" class="button">I love you too</a>
+            </div>
+        </div>
+        <noscript><p class="script-note">Enable JavaScript to play through Dr Orlow's button story.</p></noscript>
+    </main>
+    <footer id="footer" aria-label="Main navigation" role="navigation">
+        <a href="Home.html">Home</a>
+        <a href="About me.html">About me</a>
+        <a href="join me.html">Join me</a>
     </footer>
 </body>
 </html>

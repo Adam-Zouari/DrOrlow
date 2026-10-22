@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+!.env.example
+coverage/
+*.log
+.npm-cache/
+.DS_Store
+/data/
+*.sqlite
+*.sqlite-*
+super-orlow.secret
+super-orlow.secret.tmp-*

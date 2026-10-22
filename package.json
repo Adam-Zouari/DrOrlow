@@ -1,0 +1,22 @@
+{
+  "name": "dr-orlow",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The original Dr Orlow friendship website, repaired and modernized.",
+  "engines": { "node": ">=22.14.0" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "dev": "node --env-file-if-exists=.env --watch server/index.js",
+    "db:setup": "node --env-file-if-exists=.env server/setup-db.js",
+    "test": "node --test",
+    "check": "node scripts/check-site.js",
+    "verify": "npm run check && npm test"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "mysql2": "^3.24.6"
+  },
+  "devDependencies": {
+    "jsdom": "^26.1.0"
+  }
+}

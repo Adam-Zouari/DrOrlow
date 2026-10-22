@@ -2,112 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="let_s play.css" />
-    <title>Dr Orlow</title>
+    <meta name="description" content="Catch Dr Orlow among a sea of floating octopuses in this playful little game.">
+    <link rel="icon" href="/assets/images/Octopus1.png" type="image/png">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/let_s play.css">
+    <script src="/assets/js/play.js" defer></script>
+    <title>Let's play | Dr Orlow</title>
 </head>
-<body>
-       <header>
-        <h1>Dr Orlow</h1>
-        <img src="Octopus1.png" alt="Logo">
-       </header>
-       <section> 
-        <h1>Catch DrOrlow</h1>
-        <div class="game1">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-           </div>
-           <div class="game2">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <a href="Congrats.html"><img src="DrOrlow.png"></a> 
-            <img src="DrOrlow.png">
-           </div>
-           <div class="game3">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-           </div>
-           <div class="game4">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-           </div>
-           <div class="game5">
-            <img src="DrOrlow.png">
-            <a href="Congrats.html"><img src="DrOrlow.png"></a> 
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-           </div>
-           <div class="game6">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-           </div>
-           <div class="game7">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-           </div>
-           <div class="game8">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-           </div>
-           <div class="game9">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <a href="Congrats.html"><img src="DrOrlow.png"></a> 
-           </div>
-           <div class="game10">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-           </div>
-           <div class="game11">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-            <img src="DrOrlow.png">
-           </div>
-    </section>
-    <footer>
-     <a href="Home.html"><h2>Home</h2></a>
-     <a href="About me.html" ><h2>About me</h2></a>
-     <a href="join me.html" ><h2>Join me</h2></a>
-     <a href="policy.html" ><h2>Policy</h2></a>
+<body class="viewport-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header>
+        <h1><a href="Home.html">Dr Orlow</a></h1>
+        <img src="/assets/images/Octopus1.png" alt="" width="220" height="100">
+    </header>
+    <main id="main-content" class="play-page" tabindex="-1">
+        <h2>Catch DrOrlow</h2>
+        <p id="game-instructions" class="sr-only">Find a real Dr Orlow among the octopuses. Use Tab and Enter to catch him. Press P to pause or resume the floating octopuses.</p>
+        <p id="game-status" class="sr-only" role="status">Find Dr Orlow among the octopuses!</p>
+        <div id="game-field" class="game-field" role="group" tabindex="0" aria-label="Catch Dr Orlow game" aria-describedby="game-instructions" aria-keyshortcuts="P">
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <a class="octopus catch-target" href="Congrats.html" aria-label="Catch Dr Orlow and celebrate"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></a>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <a class="octopus catch-target" href="Congrats.html" aria-label="Catch Dr Orlow and celebrate"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></a>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <a class="octopus catch-target" href="Congrats.html" aria-label="Catch Dr Orlow and celebrate"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></a>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+            <span class="octopus" aria-hidden="true"><img src="/assets/images/DrOrlow.png" alt="" width="577" height="433"></span>
+        </div>
+        <noscript><p class="sr-only">The octopuses stay still without JavaScript. You can still find and catch Dr Orlow!</p></noscript>
+    </main>
+    <footer aria-label="Main navigation" role="navigation">
+        <a href="Home.html">Home</a>
+        <a href="About me.html">About me</a>
+        <a href="join me.html">Join me</a>
+        <a href="policy.html">Policy</a>
     </footer>
 </body>
 </html>

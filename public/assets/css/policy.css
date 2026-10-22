@@ -1,0 +1,112 @@
+.policy-page {
+    padding: clamp(.5rem, 2svh, 1.25rem) clamp(1rem, 4vw, 4rem);
+}
+
+#policy-story,
+.warning-scene,
+.character-scene {
+    block-size: 100%;
+    min-block-size: 0;
+}
+
+.warning-scene {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#warning2 {
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding-block-end: 12svh;
+}
+
+#warning3 {
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-block-start: 8svh;
+}
+
+.policy-page .button {
+    max-inline-size: 100%;
+    padding: .35em .65em;
+    font-size: clamp(1.5rem, min(4vw, 6svh), 3.125rem);
+    line-height: 1.1;
+}
+
+.character-scene {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(.5rem, 2svh, 1.5rem);
+    max-inline-size: 85rem;
+    margin-inline: auto;
+}
+
+.character {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 0;
+    object-fit: contain;
+}
+
+.character-message {
+    grid-column: 2;
+    grid-row: 1;
+    min-inline-size: 0;
+    font-size: clamp(1.5rem, min(4.5vw, 7svh), 4.375rem);
+    line-height: 1.15;
+}
+
+.character-message p {
+    margin: .25em 0 .45em;
+}
+
+.character-scene > .button {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+}
+
+.script-note {
+    text-align: center;
+}
+
+@media (max-width: 37.5rem) and (min-height: 32rem) {
+    .character-scene {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) auto auto;
+        text-align: center;
+    }
+
+    .character {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .character-message {
+        grid-column: 1;
+        grid-row: 2;
+        font-size: clamp(1.25rem, min(6vw, 4svh), 2rem);
+    }
+
+    .character-scene > .button {
+        grid-column: 1;
+        grid-row: 3;
+        justify-self: center;
+    }
+}
+
+/* Keep enlarged text reachable on very short or heavily zoomed viewports. */
+@media (max-height: 22rem) {
+    body.viewport-page {
+        block-size: auto;
+    }
+
+    .policy-page {
+        min-block-size: 20rem;
+    }
+}

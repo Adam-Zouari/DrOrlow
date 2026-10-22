@@ -2,94 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Join me.css" />
-    <title>Dr Orlow</title>
+    <meta name="description" content="Send a form to Dr Orlow and share your interests and ideas.">
+    <meta name="theme-color" content="#800080">
+    <link rel="icon" href="/assets/images/Octopus1.png" type="image/png">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/Join me.css">
+    <script src="/assets/js/join.js" defer></script>
+    <title>Join me | Dr Orlow</title>
+    <script src="/assets/js/ambient.js" defer></script>
 </head>
 <body>
-       <header>
-        <h1>Dr Orlow</h1>
-        <img src="Octopus1.png" alt="Logo">
-       </header>
-       <section>
-        <h1>Make friends with DrOrlow ^-^</h1>
-        <form action="/submit" method="post">
-            <fieldset id="Fieldset0">
-                <div id="Fieldset1">
-            <fieldset id="fieldset1">
-               <legend>Identity</legend><br>
-               <label>Name: </label><input type="text" name="name" id="name" required placeholder="Name"><br><br>
-               <label>Surname: </label> <input type="text" name="surname" id="surname" required placeholder="Surname"><br><br>
-               <label>Your gender: </label>
-               <select name="gender">
-               <option value="Male">Male</option>
-               <option value="Female">Female</option>
-               </select>
-               <br>
-            </fieldset>
-        </div>
-            <div id="Fieldset2">
-            <fieldset id="fieldset2">
-                <legend>Sign up</legend><br>
-                <label>Identifier: </label><input type="password" id="id" name="id" required><br><br>
-               <label>New password: </label><input type="password" id="psw" name="psw" required><br><br>
-               <label>Confirmation: </label><input type="password" id="conf" name="conf" required>
-            </fieldset>
-        </div>
-        <div id="Fieldset3">
-            <fieldset id="fieldset3">
-                <legend>Personal details</legend><br>
-                <label>Email: </label><input type="email" name="email" id="email" required placeholder="DrOrlow@gmail.com"><br><br>
-                <label>Professional email: </label><input type="email" name="pemail" id="pemail" required placeholder="DrOrlow@gmail.com"><br><br>
-                <label>Birthday: </label><input type="date" name="birthday" id="birthday" required placeholder="05/01/2003"><br><br>
-                <label>Details:</label>
-                <textarea name="details" rows="5" cols="50"></textarea><br><br>
-                <label>Photo: </label><input type="file" name="file" id="file" accept="image/png, image/jpeg, image/gif" required><br>
-            </fieldset>
-        </div>
-        <div id="Fieldset4">
-        <fieldset id="fieldset4">
-            <legend>Your interests</legend><br>
-            <label>Sports </label><input type="checkbox" name="Sports" id="Sports">
-            <label>Science </label><input type="checkbox" name="Medecine" id="Medecine">
-            <label>Arts </label><input type="checkbox" name="Mathematiques" id="Mathematiques"><br><br>
-            <label>Other interets: </label> <textarea name="interests" rows="5" cols="50"></textarea><br>
-        </fieldset>
-    </div>
-    <div id="Fieldset5">
-    <fieldset id="fieldset5">
-        <legend>Why do you want tp join me?</legend><br>
-        <textarea name="join_reason" rows="5" cols="50" required></textarea><br>
-      </fieldset>
-    </div>
-      <div id="Fieldset6">
-     <fieldset id="fieldset6">
-        <legend>What do you think of DrOrlow: </legend>
-            <input type="radio" name="r1" id="t1" required><label >He is cute </label><br>
-            <input type="radio" name="r1" id="t2" required><label >He is so cute</label><br>
-            <input type="radio" name="r1" id="t3" required><label >He is so so cute</label><br>
-     </fieldset>
-    </div>
-    <div id="subset">
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
-    </div>
-    </fieldset>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header>
+        <h1><a href="Home.html">Dr Orlow</a></h1>
+        <img src="/assets/images/Octopus1.png" alt="" width="220" height="100">
+    </header>
+    <main id="main-content" tabindex="-1">
+        <h2>Make friends with DrOrlow ^-^</h2>
+        <p class="form-intro">Send your details to Dr Orlow. Fields marked with * are required. The other details are up to you.</p>
+        <form id="join-form" action="/submit" method="post">
+            <div id="form-status" class="form-status" role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></div>
+            <div class="submission-grid">
+                <fieldset>
+                    <legend>Identity</legend>
+                    <div class="form-field">
+                        <label for="name">Name *</label>
+                        <input type="text" name="name" id="name" required maxlength="80" autocomplete="given-name" placeholder="Name" aria-describedby="name-error">
+                        <span class="field-error" id="name-error" data-error-for="name"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="surname">Surname *</label>
+                        <input type="text" name="surname" id="surname" required maxlength="80" autocomplete="family-name" placeholder="Surname" aria-describedby="surname-error">
+                        <span class="field-error" id="surname-error" data-error-for="surname"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="gender">Your gender</label>
+                        <select name="gender" id="gender" aria-describedby="gender-error">
+                            <option value="Prefer not to say">Prefer not to say</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="field-error" id="gender-error" data-error-for="gender"></span>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Personal details</legend>
+                    <div class="form-field">
+                        <label for="email">Email *</label>
+                        <input type="email" name="email" id="email" required maxlength="254" pattern=".+@.+\..+" title="Enter an email address, such as name@example.com." autocomplete="email" aria-describedby="email-error">
+                        <span class="field-error" id="email-error" data-error-for="email"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="pemail">Professional email</label>
+                        <input type="email" name="pemail" id="pemail" maxlength="254" pattern=".+@.+\..+" title="Enter an email address, such as name@example.com." autocomplete="section-work email" aria-describedby="pemail-error">
+                        <span class="field-error" id="pemail-error" data-error-for="pemail"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="birthday">Birthday</label>
+                        <input type="date" name="birthday" id="birthday" min="1900-01-01" autocomplete="bday" aria-describedby="birthday-error">
+                        <span class="field-error" id="birthday-error" data-error-for="birthday"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="details">Details about you</label>
+                        <textarea name="details" id="details" rows="4" maxlength="2000" aria-describedby="details-error"></textarea>
+                        <span class="field-error" id="details-error" data-error-for="details"></span>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Your interests</legend>
+                    <div class="choice-list interests-list">
+                        <label for="sports"><input type="checkbox" name="sports" id="sports" value="yes"> Sports</label>
+                        <label for="science"><input type="checkbox" name="science" id="science" value="yes"> Science</label>
+                        <label for="arts"><input type="checkbox" name="arts" id="arts" value="yes"> Arts</label>
+                    </div>
+                    <div class="form-field">
+                        <label for="interests">Other interests</label>
+                        <textarea name="interests" id="interests" rows="5" maxlength="2000" aria-describedby="interests-error"></textarea>
+                        <span class="field-error" id="interests-error" data-error-for="interests"></span>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Why do you want to join me?</legend>
+                    <div class="form-field">
+                        <label for="join_reason">Tell Dr Orlow a little about why you are here *</label>
+                        <textarea name="join_reason" id="join_reason" rows="5" required maxlength="2000" aria-describedby="join_reason-error"></textarea>
+                        <span class="field-error" id="join_reason-error" data-error-for="join_reason"></span>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>What do you think of DrOrlow?</legend>
+                    <div class="choice-list">
+                        <label for="t1"><input type="radio" name="r1" id="t1" value="cute" aria-describedby="r1-error"> He is cute</label>
+                        <label for="t2"><input type="radio" name="r1" id="t2" value="so-cute" aria-describedby="r1-error"> He is so cute</label>
+                        <label for="t3"><input type="radio" name="r1" id="t3" value="so-so-cute" aria-describedby="r1-error"> He is so so cute</label>
+                    </div>
+                    <span class="field-error" id="r1-error" data-error-for="r1"></span>
+                </fieldset>
+            </div>
+            <div class="form-actions">
+                <button class="button" type="submit" id="submit-button">Send form</button>
+                <button class="button" type="reset" id="reset-button">Reset</button>
+            </div>
         </form>
-       </section>
-       <div class="bubble">
-        <img src="bubble0.png">
-        <img src="bubble0.png">
-        <img src="bubble0.png">
-        <img src="bubble0.png">
-        <img src="bubble0.png">
-        <img src="bubble0.png">
-       </div>
-       <footer>
-        <a href="Home.html" ><h2>Home</h2></a>
-        <a href="About me.html" ><h2>About me</h2></a>
-        <a href="policy.html" ><h2>Policy</h2></a>
-       </footer>
+    </main>
+    <div class="bubble" aria-hidden="true">
+        <img src="/assets/images/bubble0.png" alt="" width="100" height="100">
+        <img src="/assets/images/bubble0.png" alt="" width="50" height="50">
+        <img src="/assets/images/bubble0.png" alt="" width="25" height="25">
+        <img src="/assets/images/bubble0.png" alt="" width="100" height="100">
+        <img src="/assets/images/bubble0.png" alt="" width="20" height="20">
+        <img src="/assets/images/bubble0.png" alt="" width="50" height="50">
+    </div>
+    <footer role="navigation" aria-label="Site navigation">
+        <a href="Home.html">Home</a>
+        <a href="About me.html">About me</a>
+        <a href="policy.html">Policy</a>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,99 @@
+.home-page main {
+    display: grid;
+    align-content: space-evenly;
+    justify-items: center;
+    gap: clamp(.5rem, 1.6svh, 1.25rem);
+    inline-size: calc(100% - var(--page-gutter) * 2);
+    margin-inline: auto;
+    padding-inline: 0;
+    padding-block: clamp(.75rem, 2svh, 1.5rem);
+    text-align: center;
+}
+.head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    inline-size: 100%;
+    gap: clamp(.3rem, 2vw, 2rem);
+}
+.head h2 { margin: 0; font-size: clamp(3rem, min(9vw, 12svh), 6.25rem); line-height: 1.05; }
+.head p { margin: 0; font: clamp(.8rem, 2.8vw, 2.75rem)/1.1 sans-serif; white-space: nowrap; }
+.home-page main > p:not(.notice) {
+    max-inline-size: 38ch;
+    margin: 0;
+    font-size: clamp(1.5rem, min(4vw, 5.5svh), 3.125rem);
+    line-height: 1.2;
+    text-wrap: balance;
+}
+#activity {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: .5rem 1rem;
+    inline-size: 100%;
+    font-size: clamp(2rem, min(4.5vw, 6svh), 3.125rem);
+    line-height: 1.1;
+}
+#activity a { padding: .45rem 1rem; text-decoration: none; }
+#activity a:hover { text-decoration: underline; }
+#activity a:active { transform: translateY(.15rem); }
+/* Keep the real link outside the decorative, aria-hidden bubble layer.
+   The content box leaves its empty left gutter clickable from below. */
+.secret-bubble-layer {
+    position: fixed;
+    inset: var(--header-size) 0 4rem;
+    z-index: 0;
+    overflow: clip;
+    contain: strict;
+    container-type: size;
+    pointer-events: none;
+}
+.secret-bubble {
+    --size: clamp(2.75rem, 4vw, 4rem);
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 64%;
+    display: grid;
+    align-items: center;
+    inline-size: var(--size);
+    block-size: var(--size);
+    border-radius: 50%;
+    opacity: .75;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.secret-bubble img {
+    display: block;
+    inline-size: min(calc(var(--page-gutter) * .9), var(--size));
+    block-size: auto;
+    pointer-events: auto;
+    cursor: pointer;
+}
+.secret-bubble:hover, .secret-bubble:active { animation-play-state: paused; }
+.secret-bubble:focus-visible {
+    animation: none;
+    inset-block-start: 64%;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+.animations-paused .secret-bubble { animation-play-state: paused; }
+@media (prefers-reduced-motion: no-preference) {
+    .secret-bubble {
+        inset-block-start: 100%;
+        animation: secret-bubble-rise 19s linear infinite;
+        animation-delay: -9s;
+    }
+}
+@keyframes secret-bubble-rise {
+    0% { transform: translateY(0) scale(.9); opacity: 0; }
+    10%, 80% { opacity: .75; }
+    100% { transform: translateY(calc(-100cqh - var(--size))) scale(1.05); opacity: 0; }
+}
+@media (max-height: 32rem) {
+    .home-page main { gap: .35rem; padding-block: .35rem; }
+    .head h2 { font-size: clamp(2rem, 9svh, 4rem); }
+    .head p { font-size: clamp(.7rem, 3svh, 1.25rem); }
+    .home-page main > p:not(.notice) { font-size: clamp(1.1rem, 4.5svh, 1.8rem); }
+    #activity { font-size: clamp(1.5rem, 5.5svh, 2rem); }
+    #activity a { padding-block: .3rem; }
+}

@@ -2,41 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Home.css" />
-    <title>Dr Orlow</title>
+    <meta name="description" content="Meet Dr Orlow, a cheerful octopus friend. Take a break, play a game, or enjoy a little encouragement.">
+    <link rel="icon" href="/assets/images/Octopus1.png" type="image/png">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/Home.css">
+    <script src="/assets/js/home.js" defer></script>
+    <title>Dr Orlow &mdash; Welcome</title>
+    <script src="/assets/js/ambient.js" defer></script>
 </head>
-<body>
-       <header>
-        <h1>Dr Orlow</h1>
-        <img src="Octopus1.png" alt="Logo">
-       </header>
-       <section> 
+<body class="viewport-page home-page artwork-background">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header>
+        <h1><a href="Home.html">Dr Orlow</a></h1>
+        <img src="/assets/images/Octopus1.png" alt="" width="220" height="100">
+    </header>
+    <main id="main-content" tabindex="-1">
+        <p id="form-notice" class="notice" role="status" hidden>Your form has been sent. Thank you, friend ^-^</p>
         <div class="head">
-            <p>(✿◠‿◠) </p>
-       <h1>Welcome</h1>
-       <p>(◠‿◠✿) </p>
-       </div>
-       <p>Are you sad ?... Don't worry ^-^ Dr Orlow is here to be with you</p>
-       <p id="patata">What do you want us to do ?</p> 
-       <div id="activity">
-       <a href="let_s play.html" id="Play">Let's play</a> 
-       <a href="let_s talk.html" id="Talk">Let's talk</a> 
+            <p aria-hidden="true">(&#10047;&#9696;&#8255;&#9696;)</p>
+            <h2>Welcome</h2>
+            <p aria-hidden="true">(&#9696;&#8255;&#9696;&#10047;)</p>
+        </div>
+        <p>Are you sad? Don't worry ^-^ Dr Orlow is here to be with you.</p>
+        <p id="patata">What do you want us to do?</p>
+        <nav id="activity" aria-label="Activities">
+            <a href="let_s play.html" id="Play">Let's play</a>
+            <a href="let_s talk.html" id="Talk">Let's talk</a>
+        </nav>
+    </main>
+    <div class="bubble" aria-hidden="true">
+        <img src="/assets/images/bubble0.png" alt=""><img src="/assets/images/bubble0.png" alt="">
+        <img src="/assets/images/bubble0.png" alt=""><img src="/assets/images/bubble0.png" alt="">
+        <img src="/assets/images/bubble0.png" alt="">
     </div>
-       </section>
-       <div class="bubble">
-        <img src="bubble0.png">
-        <img src="bubble0.png">
-        <img src="bubble0.png">
-        <img src="bubble0.png">
-        <img src="bubble0.png">
-        <img src="bubble0.png">
-       </div>
-       <footer>
-        <a href="About me.html" ><h2>About me</h2></a>
-        <a href="join me.html" ><h2>Join me</h2></a>
-        <a href="policy.html" ><h2>Policy</h2></a>
-       </footer>
+    <div class="secret-bubble-layer">
+        <a class="secret-bubble" href="/super-orlow" aria-label="Enter Super Orlow">
+            <img src="/assets/images/bubble0.png" alt="" width="50" height="50">
+        </a>
+    </div>
+    <footer role="navigation" aria-label="Site navigation">
+        <a href="About me.html">About me</a>
+        <a href="join me.html">Join me</a>
+        <a href="policy.html">Policy</a>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A little secret room for Dr Orlow.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#800080">
+    <link rel="icon" href="/assets/images/Octopus1.png" type="image/png">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/super-orlow.css">
+    <script src="/assets/js/super-orlow.js" defer></script>
+    <title>Super Orlow | Dr Orlow</title>
+</head>
+<body class="super-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header>
+        <h1><a href="Home.html">Dr Orlow</a></h1>
+        <img src="/assets/images/Octopus1.png" alt="" width="220" height="100">
+    </header>
+    <main id="main-content" tabindex="-1">
+        <div class="secret-welcome">
+            <div class="secret-heading">
+                <span aria-hidden="true">✧</span>
+                <h2>Super Orlow</h2>
+                <span aria-hidden="true">✧</span>
+            </div>
+            <p class="secret-intro">Even an octopus needs a little secret room.</p>
+        </div>
+        <div class="door-feedback">
+            <p id="super-status" class="super-status" role="status" aria-live="polite">Opening the door…</p>
+            <button id="retry-lock" class="quiet-button retry-lock" type="button" hidden>Try closing the door again</button>
+        </div>
+        <section id="super-login" class="secret-door" aria-labelledby="door-title" hidden>
+            <img class="door-orlow" src="/assets/images/DrOrlow.png" alt="Dr Orlow is keeping the secret room safe." width="400" height="400">
+            <div class="door-copy">
+                <h3 id="door-title">Psst… is that you, Dr Orlow?</h3>
+                <form id="super-login-form">
+                    <label for="super-password">The secret phrase</label>
+                    <input id="super-password" name="password" type="password" autocomplete="current-password" required maxlength="256">
+                    <button class="button" type="submit" id="unlock-button">Let me in ^-^</button>
+                </form>
+            </div>
+        </section>
+        <section id="super-room" aria-label="Dr Orlow's secret room" hidden>
+            <div class="room-navigation">
+                <div class="room-tabs" role="tablist" aria-label="Secret room activities">
+                    <button id="letters-tab" class="room-tab" type="button" role="tab" aria-selected="true" aria-controls="letters-panel">Letters from friends</button>
+                    <button id="games-tab" class="room-tab" type="button" role="tab" aria-selected="false" aria-controls="games-panel" tabindex="-1">Orlow's playroom</button>
+                </div>
+                <button id="logout-button" type="button" class="quiet-button">Close the secret door</button>
+            </div>
+            <section id="letters-panel" role="tabpanel" aria-labelledby="letters-tab" tabindex="0">
+                <div class="letters-heading">
+                    <h3>A little sea of friends</h3>
+                    <button id="refresh-letters" type="button" class="quiet-button">Refresh letters</button>
+                </div>
+                <p id="letters-status" class="plain-copy" role="status" aria-live="polite"></p>
+                <div class="letter-layout">
+                    <div>
+                        <ul id="letters-list" class="letters-list" aria-label="Submitted forms"></ul>
+                        <nav id="letters-pagination" class="letters-pagination" aria-label="Letter pages" hidden>
+                            <button id="previous-page" class="quiet-button" type="button">← Newer</button>
+                            <span id="page-number" class="plain-copy"></span>
+                            <button id="next-page" class="quiet-button" type="button">Older →</button>
+                        </nav>
+                    </div>
+                    <article id="letter-detail" class="letter-detail" aria-labelledby="letter-title" hidden>
+                        <h4 id="letter-title" tabindex="-1"></h4>
+                        <dl id="letter-fields"></dl>
+                    </article>
+                </div>
+            </section>
+            <section id="games-panel" role="tabpanel" aria-labelledby="games-tab" tabindex="0" hidden>
+                <div class="playroom-heading">
+                    <h3>A break for the doctor</h3>
+                    <p>Eight arms. Two little games. Take your time ^-^</p>
+                </div>
+                <div class="game-choices" aria-label="Choose a game">
+                    <button id="choose-memory" type="button" class="game-choice" aria-pressed="true">Octopus twins<span>Find all six pairs</span></button>
+                    <button id="choose-reaction" type="button" class="game-choice" aria-pressed="false">Bubble reflex<span>Wait… then catch!</span></button>
+                </div>
+                <section id="memory-game" class="secret-game" aria-labelledby="memory-title">
+                    <div class="game-heading"><h4 id="memory-title">Octopus twins</h4><button id="memory-restart" type="button" class="quiet-button">Shuffle again</button></div>
+                    <p id="memory-status" class="plain-copy" role="status" aria-live="polite"></p>
+                    <div id="memory-board" class="memory-board" aria-label="Matching cards"></div>
+                </section>
+                <section id="reaction-game" class="secret-game" aria-labelledby="reaction-title" hidden>
+                    <div class="game-heading"><h4 id="reaction-title">Bubble reflex</h4><button id="reaction-restart" type="button" class="quiet-button">Start over</button></div>
+                    <p id="reaction-status" class="plain-copy" role="status" aria-live="polite">Five bubbles to catch. Press Start when you are ready.</p>
+                    <button id="reaction-target" class="reaction-target" type="button">
+                        <img src="/assets/images/bubble0.png" alt="" width="200" height="200">
+                        <span id="reaction-label">Start</span>
+                    </button>
+                    <ol id="reaction-results" class="reaction-results" aria-label="Reaction times"></ol>
+                </section>
+            </section>
+        </section>
+        <noscript><p class="notice">Please enable JavaScript to open the secret room.</p></noscript>
+    </main>
+    <footer role="navigation" aria-label="Site navigation">
+        <a href="Home.html">Home</a>
+        <a href="About me.html">About me</a>
+        <a href="policy.html">Policy</a>
+    </footer>
+</body>
+</html>

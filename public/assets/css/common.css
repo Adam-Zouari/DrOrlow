@@ -1,0 +1,206 @@
+@font-face {
+    font-family: 'Beautiful';
+    src: url('../fonts/Beautiful.ttf') format('truetype');
+    font-display: swap;
+}
+:root {
+    color-scheme: dark;
+    --purple: #800080;
+    --cream: #ffefd5;
+    --header-size: clamp(4rem, 10svh, 6.25rem);
+    --page-gutter: clamp(1rem, 4vw, 3rem);
+}
+* { box-sizing: border-box; }
+html { min-block-size: 100%; }
+body {
+    margin: 0;
+    min-block-size: 100vh;
+    min-block-size: 100svh;
+    display: flex;
+    flex-direction: column;
+    isolation: isolate;
+    background: var(--purple);
+    color: white;
+}
+body.viewport-page {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    block-size: 100vh;
+    block-size: 100svh;
+}
+body.artwork-background {
+    background-image: url('../images/Capture1.PNG');
+    background-repeat: no-repeat;
+    background-size: clamp(8rem, 17vw, 15.625rem);
+    background-blend-mode: soft-light;
+    background-position: -.625rem 72%;
+}
+[hidden] { display: none !important; }
+header, main, footer { position: relative; z-index: 1; }
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    min-block-size: var(--header-size);
+    padding-inline: var(--page-gutter) 0;
+    background: black;
+    color: var(--cream);
+}
+header h1 {
+    margin: 0;
+    min-inline-size: 0;
+    font-size: clamp(1.65rem, min(4vw, 6svh), 3.125rem);
+    line-height: 1.1;
+}
+header h1 a { color: inherit; text-decoration: none; }
+header > img {
+    inline-size: clamp(7rem, 19vw, 13.75rem);
+    block-size: var(--header-size);
+    max-inline-size: 44%;
+    object-fit: contain;
+}
+main {
+    flex: 1;
+    min-inline-size: 0;
+    min-block-size: 0;
+    inline-size: 100%;
+    padding: 1.5rem var(--page-gutter) 2.5rem;
+    font-family: 'Beautiful', cursive;
+    overflow-wrap: break-word;
+}
+main > h2 {
+    margin: 1rem 0 2rem;
+    text-align: center;
+    font-size: clamp(2.625rem, 6vw, 4.375rem);
+    font-weight: bold;
+    line-height: 1.15;
+}
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    flex-shrink: 0;
+    gap: .25rem 1.25rem;
+    padding: .65rem var(--page-gutter);
+    background: black;
+}
+footer a {
+    padding: .4rem .25rem;
+    color: var(--cream);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: 1.2;
+    font-weight: bold;
+    text-decoration: none;
+}
+a { color: var(--cream); }
+a:hover { text-decoration: underline; }
+button, input, select, textarea { max-inline-size: 100%; }
+button { cursor: pointer; }
+button, a, input, select, textarea { touch-action: manipulation; }
+.button {
+    display: inline-block;
+    border: .125rem solid var(--cream);
+    border-radius: 1.25rem;
+    padding: .5rem 1.5rem;
+    background: black;
+    color: white;
+    font-family: 'Beautiful', cursive;
+    font-size: clamp(1.875rem, 4vw, 3.125rem);
+    line-height: 1.15;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+.button:active { transform: translateY(.15rem); }
+:focus-visible { outline: .1875rem solid #ffde66; outline-offset: .25rem; }
+.skip-link {
+    position: fixed;
+    inset-block-start: -8rem;
+    inset-inline-start: .75rem;
+    z-index: 20;
+    padding: .75rem 1.25rem;
+    background: black;
+    color: var(--cream);
+    font: 1.125rem/1.4 Arial, sans-serif;
+}
+.skip-link:focus { inset-block-start: .75rem; }
+.sr-only,
+.talk-title {
+    position: absolute;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+.sr-only {
+    inline-size: .0625rem;
+    block-size: .0625rem;
+    padding: 0;
+    margin: -.0625rem;
+    border: 0;
+}
+/* Distribute decoration across the viewport, behind every page surface.
+   The isolated body keeps this negative layer above its background. */
+.bubble {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: clip;
+    contain: strict;
+    pointer-events: none;
+    user-select: none;
+}
+.bubble img {
+    --size: clamp(2rem, 6vw, 6rem);
+    --lane: 7%;
+    --drift: calc(var(--size) * .35);
+    position: absolute;
+    inset-block-end: calc(var(--size) * -1.2);
+    inset-inline-start: calc(var(--lane) - var(--size) * .5);
+    inline-size: var(--size);
+    block-size: var(--size);
+    max-inline-size: none;
+    opacity: 0;
+    pointer-events: none;
+    will-change: transform, opacity;
+    animation: bubble-rise 18s linear infinite;
+    animation-delay: -3s;
+}
+.bubble img:nth-child(even) {
+    --drift: calc(var(--size) * -.35);
+}
+.bubble img:nth-child(2) { --lane: 27%; --size: clamp(1.5rem, 4vw, 4rem); animation-duration: 23s; animation-delay: -16s; }
+.bubble img:nth-child(3) { --lane: 49%; --size: clamp(1rem, 2.5vw, 2.5rem); animation-duration: 16s; animation-delay: -10s; }
+.bubble img:nth-child(4) { --lane: 70%; animation-duration: 21s; animation-delay: -8s; }
+.bubble img:nth-child(5) { --lane: 92%; --size: clamp(.875rem, 2vw, 2rem); animation-duration: 25s; animation-delay: -20s; }
+.bubble img:nth-child(6) { --lane: 39%; --size: clamp(1.5rem, 3vw, 3rem); animation-duration: 19s; animation-delay: -4s; }
+@keyframes bubble-rise {
+    0% { transform: translate3d(0, 0, 0) scale(.85); opacity: 0; }
+    12% { opacity: .28; }
+    45% { transform: translate3d(var(--drift), -50svh, 0) scale(.95); opacity: .24; }
+    85% { opacity: .14; }
+    100% { transform: translate3d(0, calc(-105svh - var(--size) * 2), 0) scale(1.05); opacity: 0; }
+}
+.animations-paused .bubble img { animation-play-state: paused; }
+@keyframes fadeInAnimation { from { opacity: 0; } to { opacity: 1; } }
+.notice {
+    max-inline-size: 45rem;
+    margin: .5rem auto;
+    padding: .5rem 1rem;
+    border: .125rem solid var(--cream);
+    border-radius: .75rem;
+    background: black;
+    font: 1rem/1.4 Arial, sans-serif;
+    text-align: center;
+}
+.script-note { font-size: 1.5rem; }
+@media (max-height: 32rem) {
+    :root { --header-size: 3.5rem; }
+    footer { gap: 0 .75rem; padding-block: .25rem; }
+    footer a { padding-block: .25rem; font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .bubble { display: none; }
+}

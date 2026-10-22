@@ -2,67 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="let_s talk.css" />
-    <title>Dr Orlow</title>
+    <meta name="description" content="Spend a friendly moment with Dr Orlow and find a little encouragement.">
+    <link rel="icon" href="/assets/images/Octopus1.png" type="image/png">
+    <link rel="stylesheet" href="/assets/css/common.css">
+    <link rel="stylesheet" href="/assets/css/let_s talk.css">
+    <script src="/assets/js/talk.js" defer></script>
+    <title>Let's talk | Dr Orlow</title>
 </head>
 <body>
-       <header>
-        <h1>Dr Orlow</h1>
-        <img src="Octopus1.png" alt="Logo">
-       </header>
-       <section> 
-        <div id="page1">
-        <p class="text">Hi friend,how are you?</p>
-        <div class="flex">
-        <button id="button1" class="button" onclick="happy1()">I am fine</button>
-        <button id="button2" class="button" onclick="happy2()">I am not fine</button>
-    </div>
-</div>
-
-
-        <div id="page2" style="display: none;">
-            <p class="text" >Glad to hear that...Are you happy?</p>
-            <div class="flex">
-                <button id="button3" class="button" onclick="happy3()">I am happy</button>
-                <button id="button4" class="button" onclick="happy4()">I am not happy</button>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header>
+        <h1><a href="Home.html">Dr Orlow</a></h1>
+        <img src="/assets/images/Octopus1.png" alt="" width="220" height="100">
+    </header>
+    <main id="main-content" class="talk-page" tabindex="-1">
+        <h2 class="talk-title">Let's talk</h2>
+        <div id="conversation">
+            <div id="page1" data-talk-scene tabindex="-1" role="group" aria-label="How are you?">
+                <p class="text">Hi friend, how are you?</p>
+                <div class="choices">
+                    <button id="button1" class="button" type="button" data-talk-next="page2">I am fine</button>
+                    <button id="button2" class="button" type="button" data-talk-next="sadtext1">I am not fine</button>
+                </div>
+            </div>
+            <div id="page2" data-talk-scene tabindex="-1" role="group" aria-label="Are you happy?" hidden>
+                <p class="text">Glad to hear that... Are you happy?</p>
+                <div class="choices">
+                    <button id="button3" class="button" type="button" data-talk-next="page3">I am happy</button>
+                    <button id="button4" class="button" type="button" data-talk-next="sadtext1">I am not happy</button>
+                </div>
+            </div>
+            <div id="page3" data-talk-scene tabindex="-1" role="group" aria-label="A happy thought" hidden>
+                <p id="happytext" class="story-text">I am so happy to hear that.<br>
+                    Your smile is so beautiful... So why not bless us with it? ^-^<br>
+                    I believe that the soul has colors...<br>
+                    And they change to the color you look at.<br>
+                    So please don't look at the dark side of life...<br>
+                    Always look at the bright side,<br>
+                    so your soul will be colorful...<br>
+                    I wish you well, my friend.</p>
+            </div>
+            <div id="sadtext1" data-talk-scene tabindex="-1" role="group" aria-label="A little encouragement" hidden>
+                <p class="story-text">Life is hard, right?... I know.<br>
+                    But... You know what should be harder?<br>
+                    Your will ^-^<br>
+                    You're probably doubting yourself at this point...<br>
+                    But I believe in you, friend.<br>
+                    I believe that you will shine like gold.<br>
+                    Maybe not today, not tomorrow or not this week... but soon ^-^<br>
+                    Don't lose hope, my friend, as brighter days are coming.</p>
+                <button id="next" class="button" type="button" data-talk-next="sadtext2">Next</button>
+            </div>
+            <div id="sadtext2" data-talk-scene tabindex="-1" role="group" aria-label="A reminder for you" hidden>
+                <p class="story-text">Remember all the good moments you had,<br>
+                    all the people you love,<br>
+                    and how precious you are.<br>
+                    Please don't be harsh on yourself, friend.<br>
+                    You are only a human after all.<br>
+                    Even nature didn't achieve perfection.<br>
+                    Smile in the face of every obstacle,<br>
+                    as the winner is the last one smiling... Have a great day, my friend ^-^</p>
             </div>
         </div>
-
-     
-        <div id="page3" style="display: none;">
-            <p id="happytext" >I am so happy to hear that<br>Your smile is so beautiful...So why not bless us with it ? ^-^<br>
-            I believe that the soul has colors...<br>And they change to the color you look at<br>
-        So please don't look at the dark side of life...<br>Always look at the bright side <br>
-        So your soul will be colorful...<br>
-    I wish you well my friend.</p>
-        </div>
-
-            <p id="sadtext1" class="sadtext" style="display: none;">Life is hard right?...I know<br>
-            But...You know what should be harder?<br>
-        Your will ^-^<br>You're probably doubting yourself at this point...<br>
-    But i believe in you friend<br>
-      I believe that you will shine like gold<br>
-    Maybe not today,not tomorrow or not this week...but soon ^-^<br>
-      Don't lose hope my friend as brighter days are coming<br></p>
-          
-      <p id="sadtext2" class="sadtext" style="display: none;"> Remember all the good moments you had <br>
-            All the people you love<br>
-            And how precious you are<br>
-          Please don't be harsh on yourself friend<br>
-           You are only a human afterall<br>
-      Even nature didn't achieve perfection<br>
-    Smile in face of every obstacle<br>
-         As the winner is the last one smiling...Have a great day my friend ^-^<br></p>
-     <button id="next" class="button" onclick="shownext()" style="display: none;">Next</button>
-    <script src="talk.js"></script> 
-    </section>
-<footer>
-    <a href="Home.html"><h2>Home</h2></a>
- <a href="About me.html" ><h2>About me</h2></a>
- <a href="join me.html" ><h2>Join me</h2></a>
- <a href="policy.html" ><h2>Policy</h2></a>
-</footer>
+        <button id="restart" class="button" type="button" hidden>Talk again</button>
+        <noscript><p class="script-note">Enable JavaScript to choose a conversation. Dr Orlow wishes you well, my friend ^-^</p></noscript>
+    </main>
+    <footer aria-label="Main navigation" role="navigation">
+        <a href="Home.html">Home</a>
+        <a href="About me.html">About me</a>
+        <a href="join me.html">Join me</a>
+        <a href="policy.html">Policy</a>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,124 @@
+.super-page main { max-width: 78rem; margin-inline: auto; padding-bottom: 2rem; }
+.secret-heading { display: flex; align-items: center; justify-content: center; gap: clamp(.75rem, 3vw, 2rem); }
+.secret-heading h2 { margin: .3em 0 0; font-size: clamp(3.2rem, 7vw, 5.2rem); }
+.secret-heading > span { color: var(--cream); font-size: clamp(2rem, 4vw, 3.5rem); }
+.secret-intro { margin: .2em 0 .7em; text-align: center; font-size: clamp(1.5rem, 3vw, 2.2rem); }
+.super-status { min-height: 1.5em; margin: .5rem auto 1rem; max-width: 45rem; text-align: center; font: 1rem/1.5 Arial, sans-serif; }
+.retry-lock { display: block; margin: 0 auto 1rem; }
+.secret-door { display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 5vw, 4rem); max-width: 57rem; margin: 0 auto 1rem; padding: clamp(1rem, 3vw, 2rem); border: .12rem solid var(--cream); border-radius: 2rem; background: #000; }
+.door-orlow { width: 40%; max-width: 19rem; height: auto; object-fit: contain; }
+.door-copy { flex: 1; min-width: 0; }
+.door-copy h3 { margin: 0 0 1rem; color: var(--cream); font-size: clamp(2rem, 4vw, 3rem); font-weight: normal; }
+.door-copy form { display: grid; gap: .75rem; }
+.door-copy label { font-size: 1.8rem; }
+.door-copy input { width: 100%; min-height: 2.75rem; border: .12rem solid var(--cream); border-radius: .5rem; padding: .55rem .75rem; background: #250025; color: #fff; font: 1.1rem/1.5 Arial, sans-serif; }
+.door-copy .button { justify-self: start; margin-top: .4rem; font-size: 2rem; }
+/* The closed door fits the viewport; long inboxes keep the normal page flow.
+   Content-sized grid minimums allow short screens and zoom to scroll naturally. */
+.super-page:not(.is-unlocked) {
+    display: grid;
+    grid-template-rows: auto minmax(min-content, 1fr) auto;
+    block-size: 100vh;
+    block-size: 100svh;
+}
+.super-page:not(.is-unlocked) main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(.35rem, 1.2svh, .85rem);
+    padding-block: clamp(.65rem, 2svh, 1.5rem);
+}
+.super-page:not(.is-unlocked) .secret-heading h2 {
+    margin: 0;
+    font-size: clamp(2.5rem, min(6vw, 8svh), 4.3rem);
+    line-height: 1.05;
+}
+.super-page:not(.is-unlocked) .secret-heading > span { font-size: clamp(1.5rem, min(4vw, 6svh), 2.75rem); }
+.super-page:not(.is-unlocked) .secret-intro {
+    margin: .25em 0 0;
+    font-size: clamp(1.15rem, min(2.6vw, 4svh), 1.85rem);
+    line-height: 1.2;
+}
+.super-page:not(.is-unlocked) .super-status { margin: 0 auto; }
+.super-page:not(.is-unlocked) .retry-lock { margin-top: .5rem; margin-bottom: 0; }
+.super-page:not(.is-unlocked) .secret-door {
+    flex: 0 0 auto;
+    inline-size: min(100%, 52rem);
+    margin-block: 0;
+    gap: clamp(1rem, 4vw, 3rem);
+    padding: clamp(.8rem, 2.5svh, 1.5rem) clamp(1rem, 3vw, 2rem);
+}
+.super-page:not(.is-unlocked) .door-orlow { width: min(36%, 30svh, 17rem); max-height: 30svh; }
+.super-page:not(.is-unlocked) .door-copy h3 {
+    margin-bottom: .5rem;
+    font-size: clamp(1.75rem, min(3.6vw, 5svh), 2.7rem);
+    line-height: 1.15;
+}
+.super-page:not(.is-unlocked) .door-copy form { gap: .5rem; }
+.super-page:not(.is-unlocked) .door-copy label { font-size: clamp(1.4rem, 3.5svh, 1.7rem); line-height: 1.1; }
+.super-page:not(.is-unlocked) .door-copy .button { margin-top: .15rem; font-size: clamp(1.6rem, 4.5svh, 2rem); }
+.room-navigation, .letters-heading, .game-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem; }
+.room-navigation { padding-bottom: 1rem; border-bottom: .1rem solid #ffefd566; }
+.room-tabs { display: flex; flex-wrap: wrap; gap: .6rem; }
+.room-tab, .quiet-button, .game-choice { border: .1rem solid var(--cream); border-radius: .8rem; background: black; color: var(--cream); }
+.room-tab { padding: .3em .65em; font: clamp(1.5rem, 3vw, 2rem)/1.3 'Beautiful', cursive; }
+.room-tab[aria-selected='true'], .game-choice[aria-pressed='true'] { background: var(--cream); color: #400040; }
+.quiet-button { min-height: 2.5rem; padding: .5em .8em; font: .9rem/1.35 Arial, sans-serif; }
+button:disabled { cursor: default; opacity: .55; }
+.plain-copy { font: 1rem/1.55 Arial, sans-serif; }
+.letters-heading h3, .playroom-heading h3 { margin: 1rem 0 .3rem; color: var(--cream); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: normal; }
+.letter-layout { display: grid; grid-template-columns: minmax(13rem, .8fr) minmax(0, 1.5fr); gap: clamp(1rem, 3vw, 2rem); align-items: start; }
+.letters-list { display: grid; gap: .6rem; padding: 0; margin: 0; list-style: none; }
+.letter-button { width: 100%; display: grid; gap: .3em; padding: .85rem 1rem; border: .1rem solid var(--cream); border-radius: 1rem; background: black; color: white; text-align: left; overflow-wrap: anywhere; }
+.letter-button[aria-pressed='true'] { box-shadow: inset .3rem 0 var(--cream); background: #310031; }
+.letter-button strong { font: 1.7rem/1.25 'Beautiful', cursive; }
+.letter-button time { color: #ffefd5c9; font: .8rem/1.4 Arial, sans-serif; }
+.letters-pagination { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .7rem; margin-top: 1rem; }
+.letter-detail { padding: clamp(1rem, 3vw, 2rem); border: .12rem solid var(--cream); border-radius: 1.5rem; background: black; overflow-wrap: anywhere; }
+.letter-detail h4 { margin: 0 0 1rem; color: var(--cream); font-size: 2.3rem; font-weight: normal; }
+.letter-detail dl { margin: 0; }
+.letter-detail dt { margin-top: 1.2rem; color: var(--cream); font: bold .85rem/1.5 Arial, sans-serif; }
+.letter-detail dd { margin: .2rem 0 0; font: 1rem/1.6 Arial, sans-serif; white-space: pre-wrap; }
+.playroom-heading { text-align: center; }
+.playroom-heading p { margin: .25rem 0 1rem; font-size: 1.7rem; }
+.game-choices { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin: 1rem 0 1.5rem; }
+.game-choice { padding: .6em 1.2em; font: 1.8rem/1.2 'Beautiful', cursive; }
+.game-choice span { display: block; margin-top: .4rem; font: .85rem/1.4 Arial, sans-serif; }
+.secret-game { max-width: 48rem; margin-inline: auto; padding: clamp(1rem, 3vw, 2rem); border: .12rem solid var(--cream); border-radius: 1.5rem; background: #000; }
+.game-heading h4 { margin: 0; color: var(--cream); font-size: 2rem; font-weight: normal; }
+.memory-board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.4rem, 1.5vw, .8rem); }
+.memory-card { display: grid; place-items: center; aspect-ratio: 1; padding: .3rem; border: .1rem solid var(--cream); border-radius: .8rem; background: #700070; color: var(--cream); font: 3rem/1 'Beautiful', cursive; transition: background-color .2s, transform .2s; }
+.memory-card img { display: none; max-width: 90%; width: 100%; height: 100%; max-height: 8rem; object-fit: contain; }
+.memory-card.is-open, .memory-card.is-matched { background: #1b001b; transform: rotate(-2deg); }
+.memory-card.is-open img, .memory-card.is-matched img { display: block; }
+.memory-card.is-open span, .memory-card.is-matched span { display: none; }
+.memory-card.is-matched { opacity: .65; transform: none; }
+.reaction-target { position: relative; display: grid; place-items: center; width: min(100%, 19rem); aspect-ratio: 1; margin: 1rem auto; padding: 1rem; border: .15rem solid var(--cream); border-radius: 50%; background: #470047; color: white; font: 2.5rem/1.2 'Beautiful', cursive; }
+.reaction-target img { position: absolute; width: 92%; height: 92%; object-fit: contain; opacity: .5; pointer-events: none; }
+.reaction-target span { position: relative; z-index: 1; max-width: 90%; }
+.reaction-target.is-waiting { background: #290029; }
+.reaction-target.is-ready { background: #0e5e40; border-color: #a5ffd7; }
+.reaction-target.is-ready img { animation: ready-bubble .5s ease-in-out infinite alternate; }
+.reaction-results { display: flex; justify-content: center; flex-wrap: wrap; gap: .7rem 2.2rem; padding-left: 1.5rem; font: .95rem/1.5 Arial, sans-serif; }
+@keyframes ready-bubble { to { transform: scale(1.05) rotate(5deg); } }
+@media (max-width: 40rem) {
+    .secret-door { flex-direction: column; gap: .5rem; }
+    .door-orlow { width: 45%; max-height: 12rem; }
+    .door-copy { width: 100%; }
+    .door-copy h3 { text-align: center; }
+    .letter-layout { grid-template-columns: minmax(0, 1fr); }
+    .memory-board { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .room-navigation { justify-content: center; }
+    .super-page:not(.is-unlocked) main { gap: .6rem; padding-block: .75rem; }
+    .super-page:not(.is-unlocked) .secret-door {
+        display: grid;
+        grid-template-columns: clamp(4.5rem, 20vw, 7rem) minmax(0, 1fr);
+        gap: .5rem .75rem;
+        padding: .8rem 1rem;
+    }
+    .super-page:not(.is-unlocked) .door-orlow { width: 100%; max-height: 6rem; }
+    .super-page:not(.is-unlocked) .door-copy { display: contents; }
+    .super-page:not(.is-unlocked) .door-copy h3 { margin: 0; text-align: start; font-size: clamp(1.6rem, 5vw, 2rem); }
+    .super-page:not(.is-unlocked) .door-copy form { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) { .memory-card { transition: none; } .reaction-target.is-ready img { animation: none; } }
